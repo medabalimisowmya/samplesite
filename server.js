@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 });
 
 
-// Health check
+
 app.get('/health', (req, res) => res.send('OK'));
 
 // Fallback route
