@@ -1,4 +1,4 @@
-name: Deploy to Render on Push
+name: CI/CD: Docker Build + Render Deploy
 
 on:
   push:
@@ -6,12 +6,21 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Trigger Render Deploy Hook
+      - name: Build Docker Image (local test)
+        run: |
+          set -e
+          docker build -t samplesite .
+
+      # Optional: Add test or lint steps here
+      # - name: Run Tests
+      #   run: npm test
+
+      - name: Trigger Render Deploy
         run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
