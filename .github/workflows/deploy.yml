@@ -1,4 +1,4 @@
-name: CI/CD: Docker Build + Render Deploy
+name: "CI/CD: Docker Build + Render Deploy"
 
 on:
   push:
