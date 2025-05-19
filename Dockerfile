@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install dependencies
 COPY package*.json ./
-RUN npm installdasdadadads
+RUN npm instaldasdadadadsaasdadadadaaacasdc
 
 # Copy the rest of the files
 COPY . .
